@@ -122,7 +122,7 @@ Compress orders
 
 *** Tasks ***
 Minimal task
-    Remove Directory    ${CURDIR}${/}output    recursive=True
+    #Remove Directory    ${CURDIR}${/}output    recursive=True
     Try to get input from business user
     ${input_orders}=    Read input file
     Open ordering website
@@ -144,7 +144,7 @@ Minimal task
     END
     Close Browser
     Compress orders
-    Remove File    orders.csv
+    #Remove File    orders.csv
     Log   Done
 
 
