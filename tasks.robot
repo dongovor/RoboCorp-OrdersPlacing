@@ -28,6 +28,13 @@ Download input file
     [Return]    ${input_table}
 
 *** Keywords ***
+Try to get input from business user
+    Create Form   Please provide link to the orders file
+    Add Text Input    Download Link    download_link
+    &{resp}=   Request Response
+    [Return]    ${res["download_link"]}
+
+*** Keywords ***
 # Get links
 #     #get secrets
 #     ${secrets}=    Get Secret    placing_orders_info
@@ -39,7 +46,8 @@ Download input file
 
 *** Tasks ***
 Minimal task
-    ${download_link}=    Download input file
+    ${download_link}=    Try to get input from business user
+    ${input_orders}=    Download input file    ${download_link}
     #Log   ${download_link}
     #Log   ${orders_placing_link}
 
