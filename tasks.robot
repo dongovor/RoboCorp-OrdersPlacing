@@ -28,18 +28,18 @@ Download input file
     [Return]    ${input_table}
 
 *** Keywords ***
-Get links
-    #get secrets
-    ${secrets}=    Get Secret    placing_orders_info
-    #get download link
-    Log   ${secrets}[download_link]
-    #get orders placing link
-    ${orders_placing_link}=   Get Secret    orders_placing_link
+# Get links
+#     #get secrets
+#     ${secrets}=    Get Secret    placing_orders_info
+#     #get download link
+#     Log   ${secrets}[download_link]
+#     #get orders placing link
+#     ${orders_placing_link}=   Get Secret    orders_placing_link
 
 
 *** Tasks ***
 Minimal task
-    Get links
+    ${download_link}=    Download input file
     #Log   ${download_link}
     #Log   ${orders_placing_link}
 
