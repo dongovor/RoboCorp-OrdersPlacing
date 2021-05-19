@@ -24,7 +24,10 @@ Try to get input from business user
     IF    '${user_input["download_link"]}' == 'None'
         Log   None as user input.
         ${secrets}=    Get Secret    placing_orders_info
-        Log   ${secrets}
+        FOR    ${key}    IN    @{secrets}
+            Log  ${key}
+        END       
+        Log  ${key}
         Download    ${secrets}[default_download_link]    overwrite=True
     ELSE
         Log   Downloading file ${user_input["download_link"]}
